@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0,user-scalable=no"/>
+        <title>博客系统-首页</title>
+        <style>
+            body,html,div,ul,li,p { margin: 0 ;padding: 0; }
+            ul , li { list-style: none; }
+            body {
+                font-family: PingFangSC-Regular,STFangSong, Helvetica, Arial, Vernada, Tahoma, STXihei, "Microsoft YaHei", "Songti SC", SimSun, Heiti, sans-serif;
+            }
+            a {
+                cursor: pointer;
+                color: #428bca;
+                text-decoration: none ;
+            }
+            a:hover {
+                text-decoration: underline ;
+            }
+            .articles-wrapper { margin: 5% 10% 2% 10%; }
+            .list-group {
+                border-radius: 4px;
+                box-shadow: 0 1px 2px rgba(0,0,0,.075) ;
+                border: 1px solid #ddd;
+            }
+            .article-box {
+                padding: 15px 20px;
+            }
+            .article-box:hover {
+                background-color: #eee ;
+            }
+            .article-box:not(:last-child) {
+                border-bottom: 1px solid #ddd;
+            }
+            .article-box p {
+                font-size: 14px;
+                margin-bottom: 10px;
+            }
+            .article-box a {
+                font-size: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="articles-wrapper">
+            <ul class="list-group">
+                <% articles.forEach( article => { %>
+                    <li class="article-box">
+                        <p><%=`${article.year}年${article.month}月${article.day}日`%></p>
+                        <a href="<%=article.href%>"><%=article.title%></a>
+                    </li>
+                <% } ) %>
+            </ul>
+        </div>
+    </body>
+</html>
