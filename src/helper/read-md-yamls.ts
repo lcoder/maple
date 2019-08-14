@@ -23,6 +23,13 @@ export default async ( files: string[] ): Promise<MdYamlConfig[]> => {
                         const configStr = data.match( yamlReg )![ 1 ]
                         try {
                             const yamlConfig = yaml.safeLoad( configStr )
+                            const { title , date , fileName } = yamlConfig
+                            if (
+                                title === undefined || title === null ||
+                                date === undefined || date === null || typeof date !== "object" ||
+                                fileName === undefined || fileName === null || typeof fileName !== "string" ) {
+                                throw new Error( `${file}，yaml配置不符合格式` )
+                            }
                             mdConfig.config = yamlConfig === null ?
                                 undefined :
                                 yamlConfig
@@ -30,6 +37,7 @@ export default async ( files: string[] ): Promise<MdYamlConfig[]> => {
                                 mdConfig
                             )
                         } catch ( e ) {
+                            console.log( e )
                             r( mdConfig )
                         }
                         hasMatched = true

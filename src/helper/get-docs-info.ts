@@ -5,7 +5,12 @@ import readMdsYaml from "./read-md-yamls"
 import { MdYamlConfig } from "../@types/index"
 const { appDocs } = paths
 
-export default async (): Promise<{ corrects: MdYamlConfig[] , useless: MdYamlConfig[] }> => {
+export interface DocsInfo {
+    corrects: MdYamlConfig[] ,
+    useless: MdYamlConfig[]
+}
+
+export default async (): Promise<DocsInfo> => {
     const exists = await fse.pathExists( appDocs )
     if ( exists ) {
         const mdFiles = await findMdFiles( appDocs ) ,

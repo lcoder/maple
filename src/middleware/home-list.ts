@@ -1,16 +1,15 @@
 import { Request , Response } from "express"
-import getDocsInfo from "../helper/get-docs-info"
-
-const getDocsPromise = getDocsInfo()
+import { docsInfos } from "../cache/index"
 
 export default async function( req: Request , res: Response ) {
-    const { corrects } = await getDocsPromise ,
+    const { corrects } = docsInfos ,
         articles = corrects.map( ( { config } ) => config ) ,
         { baseUrl } = req ,
         released = articles
             .filter( item => {
                 return item!.release === true
             } )
+            .sort( ( a , b ) => b!.date.getTime() - a!.date.getTime() )
             .map( item => {
                 const { date , fileName } = item! ,
                     year = date.getFullYear() ,
