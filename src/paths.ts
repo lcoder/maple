@@ -20,4 +20,5 @@ export default {
     appDocs: resolveApp( docPath ),
     appViews: resolveApp( "src/views" ) ,
     appPackageJson: resolveApp("package.json"),
+    appWebsite: resolveApp("website.yml"),
 }

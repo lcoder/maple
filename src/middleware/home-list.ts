@@ -1,5 +1,6 @@
 import { Request , Response } from "express"
 import { docsInfos } from "../cache/index"
+import website from "../helper/website"
 
 export default async function( req: Request , res: Response ) {
     const { corrects } = docsInfos ,
@@ -24,5 +25,5 @@ export default async function( req: Request , res: Response ) {
                     href ,
                 }
             } )
-    res.render( "home" , { articles: released } )
+    res.render( "home" , { articles: released , website } )
 }

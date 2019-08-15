@@ -3,46 +3,22 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0,user-scalable=no"/>
-        <title>博客系统-首页</title>
+        <title><%=website.name%></title>
         <style>
-            body,html,div,ul,li,p { margin: 0 ;padding: 0; }
-            ul , li { list-style: none; }
-            body {
-                font-family: PingFangSC-Regular,STFangSong, Helvetica, Arial, Vernada, Tahoma, STXihei, "Microsoft YaHei", "Songti SC", SimSun, Heiti, sans-serif;
-            }
-            a {
-                cursor: pointer;
-                color: #428bca;
-                text-decoration: none ;
-            }
-            a:hover {
-                text-decoration: underline ;
-            }
-            .articles-wrapper { margin: 5% 10% 2% 10%; }
-            .list-group {
-                border-radius: 4px;
-                box-shadow: 0 1px 2px rgba(0,0,0,.075) ;
-                border: 1px solid #ddd;
-            }
-            .article-box {
-                padding: 15px 20px;
-            }
-            .article-box:hover {
-                background-color: #eee ;
-            }
-            .article-box:not(:last-child) {
-                border-bottom: 1px solid #ddd;
-            }
-            .article-box p {
-                font-size: 14px;
-                margin-bottom: 10px;
-            }
-            .article-box a {
-                font-size: 20px;
-            }
+            body,html,div,ul,li,p{margin:0;padding:0}ul,li{list-style:none}body{font-family:PingFangSC-Regular,STFangSong,Helvetica,Arial,Vernada,Tahoma,STXihei,"Microsoft YaHei","Songti SC",SimSun,Heiti,sans-serif}a{cursor:pointer;color:#428bca;text-decoration:none}a:hover{text-decoration:underline}.articles-wrapper{margin:5% 10% 2% 10%}.list-group{border-radius:4px;box-shadow:0 1px 2px rgba(0,0,0,.075);border:1px solid #ddd}.article-box{padding:15px 20px}.article-box:hover{background-color:#eee}.article-box:not(:last-child){border-bottom:1px solid #ddd}.article-box p{font-size:14px;margin-bottom:10px}.article-box a{font-size:20px}.website-name{color:#777;font-size:24px;font-family:"Palatino Linotype","Book Antiqua",Palatino,Helvetica,STKaiti,SimSun,serif;text-decoration:none}.website-name:hover{color:#5e5e5e;text-decoration:none}.sider{font-family:STFangSong,Helvetica,Arial,Vernada,Tahoma,STXihei,"Microsoft YaHei","Songti SC",SimSun,Heiti,sans-serif;display:flex;color:#777;font-size:24px;text-shadow:0 1px 0 rgba(255,255,255,.25);line-height:20px}.sider a{display:block;padding:15px 15px;color:#777;text-decoration:none}.sider a:hover{color:#333;text-decoration:none}.top-bar{display:flex;justify-content:space-between;align-items:center;padding:0 20px;border-bottom:1px solid #e7e7e7}
         </style>
     </head>
     <body>
+        <div class="top-bar">
+            <div>
+                <a class="website-name" href="/blog"><%=website.name%></a>
+            </div>
+            <ul class="sider">
+                <li>
+                    <a href="mailto:<%=website.contactMail%>">联系</a>
+                </li>
+            </ul>
+        </div>
         <div class="articles-wrapper">
             <ul class="list-group">
                 <% articles.forEach( article => { %>
