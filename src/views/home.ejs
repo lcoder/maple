@@ -20,14 +20,20 @@
             </ul>
         </div>
         <div class="articles-wrapper">
-            <ul class="list-group">
-                <% articles.forEach( article => { %>
-                    <li class="article-box">
-                        <p><%=`${article.year}年${article.month}月${article.day}日`%></p>
-                        <a href="<%=article.href%>"><%=article.title%></a>
-                    </li>
-                <% } ) %>
-            </ul>
+            <% if ( articles && articles.length > 0 ) { %>
+                <ul class="list-group">
+                    <% articles.forEach( article => { %>
+                        <li class="article-box">
+                            <p><%=`${article.year}年${article.month}月${article.day}日`%></p>
+                            <a href="<%=article.href%>"><%=article.title%></a>
+                        </li>
+                    <% } ) %>
+                </ul>
+            <% } else { %>
+                <div>
+                    没有文章
+                </div>
+            <% } %>
         </div>
     </body>
 </html>
