@@ -3,7 +3,6 @@ import { resolveHome } from "./static"
 import { config } from "./env"
 import blogRouter from "./router/blog-router"
 import paths from "./paths"
-import ejs from "ejs"
 
 const staticPath = resolveHome( config.static )
 const { appViews } = paths
