@@ -1,19 +1,19 @@
-import { Request , Response } from "express"
+import { Request , Response , NextFunction } from "express"
 import { articleRouteReg } from "../helper/share"
 import findMatchedCache from "../helper/find-matched-cache"
 import md2html from "../helper/md2html"
 import website from "../helper/website"
 
-export default async function articleContent( req: Request , res: Response ) {
+export default async function articleContent( req: Request , res: Response , next: NextFunction ) {
     const { url } = req ,
         result = url.match( articleRouteReg )
     if ( result === null ) {
-        res.send( "404" )
+        return next()
     } else {
         const [ , year , month , day , fileName ] = result ,
             target = findMatchedCache( { year , month , day , fileName } )
         if ( target === undefined ) {
-            res.send( "404" )
+            return next()
         } else {
             const { file , config } = target ,
                 { title } = config! ,

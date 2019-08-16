@@ -1,11 +1,10 @@
 import express from "express"
-import { resolveHome } from "./static"
 import { config } from "./env"
 import blogRouter from "./router/blog-router"
 import paths from "./paths"
 import website from "./helper/website"
+import { staticPath } from "./paths"
 
-const staticPath = resolveHome( config.static )
 const { appViews } = paths
 const { base } = website
 const app = express()
