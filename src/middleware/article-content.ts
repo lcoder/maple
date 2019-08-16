@@ -2,6 +2,7 @@ import { Request , Response } from "express"
 import { articleRouteReg } from "../helper/share"
 import findMatchedCache from "../helper/find-matched-cache"
 import md2html from "../helper/md2html"
+import website from "../helper/website"
 
 export default async function articleContent( req: Request , res: Response ) {
     const { url } = req ,
@@ -18,7 +19,7 @@ export default async function articleContent( req: Request , res: Response ) {
                 { title } = config! ,
                 mdHtml = await md2html( file )
             // res.send( `founded,${file}` )
-            res.render( "article" , { mdHtml , title } )
+            res.render( "article" , { mdHtml , title , website } )
         }
     }
 }
