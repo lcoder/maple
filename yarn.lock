@@ -1472,10 +1472,10 @@ has-values@^1.0.0:
     is-number "^3.0.0"
     kind-of "^4.0.0"
 
-highlight.js@10.0.1:
-  version "10.0.1"
-  resolved "https://registry.npm.taobao.org/highlight.js/download/highlight.js-10.0.1.tgz#32ba25ee532291b86d1480b809a7e38bcd7f6dfe"
-  integrity sha1-Mrol7lMikbhtFIC4Cafji81/bf4=
+highlight.js@10.4.1:
+  version "10.4.1"
+  resolved "https://registry.npm.taobao.org/highlight.js/download/highlight.js-10.4.1.tgz#d48fbcf4a9971c4361b3f95f302747afe19dbad0"
+  integrity sha1-1I+89KmXHENhs/lfMCdHr+GdutA=
 
 hosted-git-info@^2.1.4:
   version "2.7.1"
