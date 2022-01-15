@@ -27,7 +27,7 @@
     "glob": "^7.1.4",
     "highlight.js": "10.0.1",
     "js-yaml": "^3.13.1",
-    "marked": "^0.7.0",
+    "marked": "^4.0.10",
     "pm2": "^3.5.1"
   },
   "devDependencies": {
